@@ -3,9 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost/pirats2025')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var indexpirate = require('./routes/pirat');
 
 var app = express();
 
@@ -22,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use('/pirat', indexpirate);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
