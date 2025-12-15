@@ -22,13 +22,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+var MongoStore = require('connect-mongo');
 app.use(session({
  secret: "Nakama",
  cookie:{maxAge:60*1000},
  proxy: true,
  resave: true,
- saveUninitialized: true
+ saveUninitialized: true,
+ store: MongoStore.create({mongoUrl: 'mongodb://localhost/pirats2025'})
 }))
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
+    "connect-mongo": "^6.0.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "ejs": "^3.1.10",
