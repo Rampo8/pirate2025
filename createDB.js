@@ -13,7 +13,7 @@ async function main() {
  await client.connect();
  console.log('Connected successfully to server');
  const db = client.db(dbName);
- const collection = db.collection('pirat');
+ const collection = db.collection('pirats');
  // the following code examples can be pasted here...
  const insertResult = await collection.insertMany([
     { a: 1 },

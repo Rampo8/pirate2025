@@ -1,15 +1,13 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/pirate2025');
-var pirats = require('./models/pirats').pirat
-var pirat = new Pirat({
-   title: "luffy",
-   nick: "luffy",
+mongoose.connect('mongodb://127.0.0.1:27017/testMongoose2024');
+
+
+var pirat = require('./models/pirat.js').pirat
+
+
+var pirat = new pirat({
+   title: "Luffy",
+   nick: "Luffy"
+
 })
 pirat.save();
-var schema = mongoose.Schema({ name: String })
-const pirate = mongoose.model('pirat', { name: String });
-schema.methods.meow = function(){
-   console.log(this.name + " сказал Привет")
-}
-const kitty = new pirat({ name: 'Zoro' });
-kitty.save().then(() => console.log('Onigiri'));

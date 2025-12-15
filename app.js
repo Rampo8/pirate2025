@@ -7,7 +7,7 @@ var mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/pirats2025')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var indexpirate = require('./routes/pirat');
+var indexpirate = require('./routes/pirats');
 
 var app = express();
 

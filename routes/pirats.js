@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var pirat = require('../models/pirats').pirat;
+var pirat = require('../models/pirat').pirat;
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -11,10 +11,10 @@ router.get("/:nick", async function(req, res, next) {
    var pirats = await pirat.find({nick: req.params.nick});
    console.log(pirats)
    if(!pirats.length) return next(new Error("Нет такого пирата в One piece"))
-       var pirat = pirats[0];
+       var pirats = pirats[0];
        res.render('pirat', {
            title: pirat.title,
-           picture: pirat.avatar,
+           avatar: pirat.avatar,
            desc: pirat.desc
        })
 });

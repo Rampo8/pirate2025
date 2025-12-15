@@ -14,4 +14,4 @@ type:Date,
 default:Date.now
 }
 })
-module.exports.pirat = mongoose.model("pirats", catSchema)
+module.exports.pirat = mongoose.model("pirat", catSchema)

@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 /* Страница Luffy*/
-router.get('/Luffy', function(req, res, next) {
+router.get('/pirat/Luffy', function(req, res, next) {
     res.render('pirat', {
         title: "Монки Ди Луффи ",
         picture: "images/luffy.png",
@@ -11,7 +11,7 @@ router.get('/Luffy', function(req, res, next) {
 });
 
 /* Страница Roger */
-router.get('/Roger', function(req, res, next) {
+router.get('/pirat/Roger', function(req, res, next) {
      res.render('pirat', {
         title: "Голд Ди Роджер",
         picture: "images/roger.png",
@@ -20,7 +20,7 @@ router.get('/Roger', function(req, res, next) {
 });
 
 /* Страница Ace */
-router.get('/Ace', function(req, res, next) {
+router.get('/pirat/Ace', function(req, res, next) {
     res.render('pirat', {
         title: "Поргас Ди Эйс",
         picture: "images/ace.png",
