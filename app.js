@@ -21,7 +21,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(require("./middlewares/createMenu.js"))
 app.use(require("./middlewares/createUser.js"))
-var checkAuth = require("../middlewares/checkAuth.js");
 var MongoStore = require('connect-mongo');
 
 app.use(session({
