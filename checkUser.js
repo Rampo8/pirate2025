@@ -1,5 +1,5 @@
 var mongoose = require("mongoose")
-mongoose.connect("mongodb://localhost/pirate2025")
+mongoose.connect("mongodb://localhost/pirat2025")
 var User = require("./models/user.js").User
 
 

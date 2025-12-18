@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/pirats2025')
+mongoose.connect('mongodb://localhost/pirat2025')
 var session = require("express-session")
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -21,19 +21,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(require("./middlewares/createMenu.js"))
 app.use(require("./middlewares/createUser.js"))
-var MongoStore = require('connect-mongo');
-
+var MongoStore = require('connect-mongo').MongoStore;
 app.use(session({
-  secret: "Nakama",
-  cookie: { maxAge: 60 * 1000 },
-  proxy: true,
-  resave: true,
-  saveUninitialized: true,
-  store: MongoStore.create({
-    client: mongoose.connection.getClient(),
-    dbName: 'pirats2025'
+ secret: "Pirat",
+   cookie: { maxAge: 60 * 1000 },
+    proxy: true,
+    resave: true,
+    saveUninitialized: true,
+    store: MongoStore.create({ mongoUrl: "mongodb://localhost/pirat2025" }),
   })
-}));
+);
 app.use(function(req,res,next){
  req.session.counter = req.session.counter + 1 || 1
  next()
