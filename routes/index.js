@@ -16,15 +16,16 @@ router.post('/logreg', async function(req, res, next) {
    res.redirect('/');
   } else {
    //res.send("<h1>Пользователь найден</h1>");
-     var foundUser = users[0];
+       var foundUser = users[0];
      if(foundUser.checkPassword(password)){
        req.session.user_id = foundUser._id
        res.redirect('/')
      } else {
-       res.render('logreg',{title: 'Вход'});
+       res.render('logreg',{title: 'Вход', error: 'Пароль не верный'});
      }
-  }  
-});
+    }
+  }
+);
 
 
 
