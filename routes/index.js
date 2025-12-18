@@ -1,6 +1,12 @@
 var express = require('express');
 var User = require('../models/user').User;
 var router = express.Router();
+router.post('/logout', function(req, res, next) {
+ req.session.destroy();
+ res.locals.user = null;
+ res.redirect('/');
+});
+
 router.post('/logreg', async function(req, res, next) {
   var username = req.body.username
   var password = req.body.password
