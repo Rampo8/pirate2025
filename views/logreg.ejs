@@ -1,4 +1,4 @@
-<% layout('/layout/page.ejs') %>
+<% layout('./layout/page.ejs') %>
 <div class="conteiner">
     <h1>Регистрация и вход</h1>
     <p>Введите имя пользователя и пароль, если такого пользователя нет, то он будет создан.</p>
@@ -23,9 +23,10 @@
                                            value="Войти"/>
         </div>
     </div>
-     <% if(error) { %>
+       <% if(error) { %>
         <div class="alert alert-danger"><%= error %></div>
     <% } %>
 
 </form>
+
 </div>
