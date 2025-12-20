@@ -1,13 +1,10 @@
 var express = require('express');
 var User = require('../models/user').User;
 var router = express.Router();
-router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express", counter: req.session.counter });
-});
 
-router.get("/logreg", function (req, res, next) {
-  res.render("logreg", { title: "Вход", error: null });
-});
+router.get('/logreg', function(req, res, next) {
+ res.render('logreg',{title: 'Вход', error: null});
+ });
 
 /* POST login/registration page. */
 router.post("/logreg", async function (req, res, next) {
@@ -24,21 +21,19 @@ router.post("/logreg", async function (req, res, next) {
     req.session.user_id = user._id;
     res.redirect("/");
   } else {
-    //res.send("<h1>Пользователь найден</h1>");
-    var foundUser = users[0];
-    if (foundUser.checkPassword(password)) {
-      req.session.user_id = foundUser._id;
-      res.redirect("/");
-    } else {
-      res.render("logreg", { title: "Вход", error: "Пароль не верный" });
-    }
-  }
+   //res.send("<h1>Пользователь найден</h1>");
+       var foundUser = users[0];
+     if(foundUser.checkPassword(password)){
+       req.session.user_id = foundUser._id
+       res.redirect('/')
+     } else {
+       res.render('logreg',{title: 'Вход', error: 'Пароль не верный'});
+     }}});
+router.post('/logout', function(req, res, next) {
+ req.session.destroy();
+ res.locals.user = null;
+ res.redirect('/');
 });
-/* POST logout. */
 
-router.post("/logout", function (req, res, next) {
-  req.session.destroy();
-  res.locals.user = null;
-  res.redirect("/");
-});
+
 module.exports = router;
