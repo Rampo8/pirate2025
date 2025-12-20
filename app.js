@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-var MongoStore = require('connect-mongo');
+var MongoStore = require('connect-mongo').MongoStore;
 app.use(session({
  secret: "Nakama",
  cookie:{maxAge:60*1000},
