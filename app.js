@@ -52,7 +52,7 @@ app.use(require("./middlewares/createMenu.js"));
 // Маршруты
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use("/pirat", indexPlanes);
+app.use("/pirats", indexPlanes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
