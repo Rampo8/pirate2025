@@ -1,6 +1,10 @@
 var express = require('express');
 var User = require('../models/user').User;
 var router = express.Router();
+
+router.get('/logreg', function(req, res, next) {
+ res.render('logreg',{title: 'Вход'});
+ });
 router.post('/logreg', async function(req, res, next) {
   var username = req.body.username
   var password = req.body.password
@@ -24,15 +28,6 @@ router.post('/logreg', async function(req, res, next) {
        res.render('logreg',{title: 'Вход'});
      }
   }  
-});
-
-
-
-router.get('/logreg', function(req, res, next) {
- res.render('logreg',{title: 'Вход'});
- });
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'pirate2025' });
 });
 
 
